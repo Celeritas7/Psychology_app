@@ -1,0 +1,5 @@
+-- Psychology app schema (already applied to the General_apps Supabase project as migration "psychology_app_init").
+-- Kept here for reference and for rebuilding elsewhere.
+-- Tables: psychology_history, psychology_incidents, psychology_lens_notes, psychology_patterns,
+--         psychology_pattern_links, psychology_topics, psychology_questions, psychology_reframes
+-- Every table: user_id defaults to auth.uid(); RLS policy "<table>_owner" allows only user_id = auth.uid().
