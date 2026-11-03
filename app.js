@@ -600,6 +600,7 @@ async function boot() {
   if (DEMO) { db = memoryDB(); user = { email: "Sample mode", user_metadata: {} }; return start(); }
   if (!window.supabase) { $("#view").innerHTML = `<p class="empty"><b>Couldn't reach Supabase.</b> Check your connection and reload.</p>`; return; }
   client = window.supabase.createClient(cfg.supabaseUrl, cfg.supabaseKey, { auth: { flowType: "pkce", persistSession: true, detectSessionInUrl: true } });
+  if (window.AkatsukiBroadcast) window.AkatsukiBroadcast(client, "psychology").start();   // Akatsuki hub broadcast overlay
   const { data: { session } } = await client.auth.getSession();
   if (location.search.includes("code=")) history.replaceState(null, "", location.pathname + (location.hash || "#/"));
   if (!session) return gate();
